@@ -33,11 +33,15 @@ if (locpath == '/index.html')
         console.log(genders)
         let selectedfoods = document.querySelectorAll('input[name="food"]:checked')
         console.log(selectedfoods);
-        // let sta = document.getElementById('states').value
-        // formValues.state = sta;
-        // console.log(sta);
+        let states = document.getElementById('stateid').value
+         formValues.State = states;
+         console.log(states);
+         let country = document.getElementById('country').value
+         formValues.Country = country;
+         console.log(country);
 
-        selectedfoods.forEach(element => {
+        selectedfoods.forEach(element => 
+        {
             console.log(element.id);
             formValues.Food.push(element.id);
         });
@@ -45,7 +49,8 @@ if (locpath == '/index.html')
         console.log(formValues);
 
 
-        if(firstname =="" || lastname =="" || addresse==""){
+        if(firstname =="" || lastname =="" || addresse=="")
+        {
             alert("Please enter something first!");
         }else{
             var html="";
@@ -186,7 +191,7 @@ xhr.send();
 xhr.onload = function ()
 {
     let responses=JSON.parse(xhr.response);
-    let headers = ['FristName', 'LastName', 'Addresse', 'Pincode', 'Gender', 'Food', 'State', 'Country']
+    let headers = ['FristName', 'LastName', 'Addresse', 'Pincode']
 
     let table = document.createElement('table')
     table.setAttribute('class', 'table')
