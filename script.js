@@ -58,9 +58,7 @@ if (locpath == '/index.html')
             html="<tr><td>"+firstname+"</td><td>"+lastname+"</td><td>"+addresse+"</td><td>"+Zip+"</td><td>"+genders+"</td><td>"+formValues.Food+"</td><td>"+formValues.State+"</td><td>"+formValues.Country+"</td></tr>";
      
             document.getElementById('result').innerHTML+=html;
-            document.getElementById('firstname').value="";
-            document.getElementById('lastname').value="";
-            document.getElementById('address').value="";
+          
         }
 
 
