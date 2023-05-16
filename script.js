@@ -16,6 +16,7 @@ if (locpath == '/index.html')
                 State: "TN",
                 Country: "IND",
             }
+    
         let firstname = document.getElementById('fname').value
         formValues.FristName = firstname;
         console.log(firstname);
@@ -46,7 +47,7 @@ if (locpath == '/index.html')
             formValues.Food.push(element.id);
         });
 
-        console.log(formValues);
+     
 
 
         if(firstname =="" || lastname =="" || addresse=="")
