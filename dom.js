@@ -293,31 +293,31 @@ FoodMLabC1.appendChild(FoodMCInput1);
 
 
 
-// let FoodVeg = document.createElement('div')
-// FoodVeg.setAttribute('class', 'formbuilder-checkbox-group form-group field-food')
-// form.appendChild(FoodVeg);
+let FoodVeg = document.createElement('div')
+FoodVeg.setAttribute('class', 'formbuilder-checkbox-group form-group field-food')
+form.appendChild(FoodVeg);
 
-// let FoodVeg1 = document.createElement('div')
-// FoodVeg1.setAttribute('class', 'checkbox-group')
-// FoodVeg.appendChild(FoodVeg1);
+let FoodVeg1 = document.createElement('div')
+FoodVeg1.setAttribute('class', 'checkbox-group')
+FoodVeg.appendChild(FoodVeg1);
 
-// let FoodVeg2 = document.createElement('div')
-// FoodVeg2.setAttribute('class', 'formbuilder-checkbox')
-// FoodVeg1.appendChild(FoodVeg2);
-
-
-// var FoodVegLabC1 = document.createElement("label");
-// FoodVegLabC1.textContent = "Veg Meal:";
-// FoodVegLabC1.setAttribute('for','food-2');
-// FoodNonVegM2.appendChild(FoodVegLabC1);
+let FoodVeg2 = document.createElement('div')
+FoodVeg2.setAttribute('class', 'formbuilder-checkbox')
+FoodVeg1.appendChild(FoodVeg2);
 
 
-// var FoodvegCInput1 = document.createElement("input");
-// FoodvegCInput1.type = "checkbox";
-// FoodvegCInput1.setAttribute('class','form-check-label');
-// FoodvegCInput1.name = "food[]";
-// FoodvegCInput1.id='Food-2'
-// FoodVegLabC1.appendChild(FoodvegCInput1);
+var FoodVegLabC1 = document.createElement("label");
+FoodVegLabC1.textContent = "Veg Meal:";
+FoodVegLabC1.setAttribute('for','food-2');
+FoodNonVegM2.appendChild(FoodVegLabC1);
+
+
+var FoodvegCInput1 = document.createElement("input");
+FoodvegCInput1.type = "checkbox";
+FoodvegCInput1.setAttribute('class','form-check-label');
+FoodvegCInput1.name = "food[]";
+FoodvegCInput1.id='Food-2'
+FoodVegLabC1.appendChild(FoodvegCInput1);
 
 
 let submitted = document.createElement('div')
@@ -416,5 +416,7 @@ form.appendChild(FoodNVegLabC1);
 form.appendChild(FoodNVegCInput1);
 form.appendChild(FoodMLabC1);
 form.appendChild(FoodMCInput1);
+form.appendChild(FoodVegLabC1);
+form.appendChild(FoodvegCInput1);
 form.appendChild(submitButton);
 document.body.appendChild(table);
