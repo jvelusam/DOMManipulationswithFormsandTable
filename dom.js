@@ -250,15 +250,15 @@ FoodNonVegM1.appendChild(FoodNonVegM2);
 
 var FoodNVegLabC1 = document.createElement("label");
 FoodNVegLabC1.textContent = "Non Veg Meal:";
-FoodNVegLabC1.setAttribute('for','food-0');
 FoodNonVegM2.appendChild(FoodNVegLabC1);
 
 
 var FoodNVegCInput1 = document.createElement("input");
-FoodNVegCInput1.type = "checkbox";
-FoodNVegCInput1.setAttribute('class','form-check-label');
 FoodNVegCInput1.name = "food[]";
-FoodNVegCInput1.id='Food-0'
+FoodNVegCInput1.id='Chicken'
+FoodNVegCInput1.type = "checkbox";
+FoodNVegCInput1.checked="checked";
+FoodNVegCInput1.setAttribute('class','form-check-label');
 FoodNVegLabC1.appendChild(FoodNVegCInput1);
 
 
@@ -287,42 +287,37 @@ var FoodMCInput1 = document.createElement("input");
 FoodMCInput1.type = "checkbox";
 FoodMCInput1.setAttribute('class','form-check-label');
 FoodMCInput1.name = "food[]";
-FoodMCInput1.id='Food-1'
+FoodMCInput1.id='Mutton'
 FoodMLabC1.appendChild(FoodMCInput1);
 
 
 
 
-let FoodVeg = document.createElement('div')
-FoodVeg.setAttribute('class', 'formbuilder-checkbox-group form-group field-food')
-form.appendChild(FoodVeg);
+// let FoodVeg = document.createElement('div')
+// FoodVeg.setAttribute('class', 'formbuilder-checkbox-group form-group field-food')
+// form.appendChild(FoodVeg);
 
-let FoodVeg1 = document.createElement('div')
-FoodVeg1.setAttribute('class', 'checkbox-group')
-FoodVeg.appendChild(FoodVeg1);
+// let FoodVeg1 = document.createElement('div')
+// FoodVeg1.setAttribute('class', 'checkbox-group')
+// FoodVeg.appendChild(FoodVeg1);
 
-let FoodVeg2 = document.createElement('div')
-FoodVeg2.setAttribute('class', 'formbuilder-checkbox')
-FoodVeg1.appendChild(FoodVeg2);
-
-
-var FoodVegLabC1 = document.createElement("label");
-FoodVegLabC1.textContent = "Veg Meal:";
-FoodVegLabC1.setAttribute('for','food-2');
-FoodNonVegM2.appendChild(FoodVegLabC1);
+// let FoodVeg2 = document.createElement('div')
+// FoodVeg2.setAttribute('class', 'formbuilder-checkbox')
+// FoodVeg1.appendChild(FoodVeg2);
 
 
-var FoodvegCInput1 = document.createElement("input");
-FoodvegCInput1.type = "checkbox";
-FoodvegCInput1.setAttribute('class','form-check-label');
-FoodvegCInput1.name = "food[]";
-FoodvegCInput1.id='Food-2'
-FoodVegLabC1.appendChild(FoodvegCInput1);
+// var FoodVegLabC1 = document.createElement("label");
+// FoodVegLabC1.textContent = "Veg Meal:";
+// FoodVegLabC1.setAttribute('for','food-2');
+// FoodNonVegM2.appendChild(FoodVegLabC1);
 
 
-
-
-
+// var FoodvegCInput1 = document.createElement("input");
+// FoodvegCInput1.type = "checkbox";
+// FoodvegCInput1.setAttribute('class','form-check-label');
+// FoodvegCInput1.name = "food[]";
+// FoodvegCInput1.id='Food-2'
+// FoodVegLabC1.appendChild(FoodvegCInput1);
 
 
 let submitted = document.createElement('div')
@@ -336,17 +331,9 @@ submitButton.setAttribute('class','btn btn-primary w-100')
 submitted.appendChild(submitButton);
 
 
-let formValues = 
-{
-    FristName: "F Name ",
-    LastName: "L Name ",
-    Addresse: "Addresse",
-    Pincode: "1",
-    Gender: "M",
-    Food: [],
-    State: "TN",
-    Country: "IND",
-}
+let formValues = [];
+
+
 
 submitButton.addEventListener("click", function (event) 
 {
@@ -358,13 +345,14 @@ submitButton.addEventListener("click", function (event)
     console.log(GEX);
 
 
-    let Fodds = document.querySelectorAll('input[name="food"]:checked')
-        console.log(Fodds);
+    let Fodds = document.querySelectorAll('input[name="food[]"]:checked')
+       console.log(Fodds);
 
         Fodds.forEach(element => 
         {
             console.log(element.id);
-            formValues.Food.push(element.id);
+            formValues.push(element.id);
+            console.log("Data" + formValues);
         });
 
 
@@ -373,7 +361,7 @@ submitButton.addEventListener("click", function (event)
     var ADDRESSESS = ADDInput.value;
     var ZIPCODE = ZIPInput.value;
     var GEND = GEX;
-    var Foodie = formValues.Food;
+    var Foodie = formValues;
     var table = document.getElementById("dataTable");
     var row = table.insertRow();
     var nameCell = row.insertCell();
@@ -428,7 +416,5 @@ form.appendChild(FoodNVegLabC1);
 form.appendChild(FoodNVegCInput1);
 form.appendChild(FoodMLabC1);
 form.appendChild(FoodMCInput1);
-form.appendChild(FoodVegLabC1);
-form.appendChild(FoodvegCInput1);
 form.appendChild(submitButton);
 document.body.appendChild(table);
