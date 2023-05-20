@@ -320,6 +320,73 @@ FoodvegCInput1.id='Food-2'
 FoodVegLabC1.appendChild(FoodvegCInput1);
 
 
+{/* <div class="formbuilder-select form-group field-country">
+<label for="country" class="formbuilder-select-label">Country</label>
+<select class="form-control" name="country" id="country">
+    <option disabled="null" selected="null">Select your country</option>
+    <option value="USA" id="country-0">USA</option>
+    <option value="PAK" id="country-1">PAK</option>
+    <option value="Sweeden" id="country-2">Sweeden</option>
+    <option value="KSA" id="country-3">KSA</option>
+    <option value="UAE" id="country-4">UAE</option>
+    <option value="IND" id="country-5">IND</option>
+    <option value="QAR" id="country-6">QAR</option>
+</select>
+</div> */}
+
+
+let Counts = document.createElement('div')
+Counts.setAttribute('class', 'checkbox-group')
+form.appendChild(Counts);
+
+var countrylab = document.createElement("label");
+countrylab.textContent = "Country";
+countrylab.setAttribute('class','formbuilder-select-label');
+countrylab.setAttribute('for','formbuilder-select-label');
+Counts.appendChild(countrylab);
+
+let selects = document.createElement('select');
+selects.setAttribute('class','form-control');
+selects.name='country';
+selects.id='country';
+Counts.appendChild(selects);
+
+let options = document.createElement('option');
+options.disabled='null';
+options.selected='null';
+options.textContent='Select your country';
+selects.appendChild(options);
+
+let options1 = document.createElement('option');
+options1.value='US';
+options1.id='country';
+options1.textContent='USA';
+selects.appendChild(options1);
+
+let options2 = document.createElement('option');
+options2.value='NZ';
+options2.id='country';
+options2.textContent='NZ';
+selects.appendChild(options2);
+
+let options3 = document.createElement('option');
+options3.value='AUS';
+options3.id='countr2';
+options3.textContent='AUS';
+selects.appendChild(options3);
+
+
+
+var FoodvegCInput1 = document.createElement("input");
+FoodvegCInput1.type = "checkbox";
+FoodvegCInput1.setAttribute('class','form-check-label');
+FoodvegCInput1.name = "food[]";
+FoodvegCInput1.id='Food-2'
+FoodVegLabC1.appendChild(FoodvegCInput1);
+
+
+
+
 let submitted = document.createElement('div')
 submitted.setAttribute('class', 'col-25')
 form.appendChild(submitted);
@@ -335,6 +402,11 @@ let formValues = [];
 
 
 
+
+
+
+
+
 submitButton.addEventListener("click", function (event) 
 {
   
@@ -343,8 +415,9 @@ submitButton.addEventListener("click", function (event)
 
     let GEX = document.querySelector('input[name="gender"]:checked').id
     console.log(GEX);
-
-
+    let countrys = document.querySelector('#country').value
+    console.log(countrys);
+   
     let Fodds = document.querySelectorAll('input[name="food[]"]:checked')
        console.log(Fodds);
 
@@ -361,6 +434,7 @@ submitButton.addEventListener("click", function (event)
     var ADDRESSESS = ADDInput.value;
     var ZIPCODE = ZIPInput.value;
     var GEND = GEX;
+    let countss =countrys;
     var Foodie = formValues;
     var table = document.getElementById("dataTable");
     var row = table.insertRow();
@@ -370,12 +444,14 @@ submitButton.addEventListener("click", function (event)
     var ZipCell = row.insertCell();
     var GEN = row.insertCell();
     var Fod = row.insertCell();
+    var counts = row.insertCell();
     nameCell.textContent = FRISTNAME;
     emailCell.textContent = LASTNAMES;
     addrCell.textContent = ADDRESSESS;
     ZipCell.textContent = ZIPCODE;
     GEN.textContent = GEND;
     Fod.textContent = Foodie;
+    counts.textContent=countss;
   
     form.reset();
 });
@@ -396,6 +472,8 @@ var gen = headerRow.insertCell();
 gen.textContent = "Gender";
 var Fodd = headerRow.insertCell();
 Fodd.textContent = "Food Selections";
+var cot = headerRow.insertCell();
+cot.textContent = "Country";
 
 
 // add form and table to document
@@ -418,5 +496,10 @@ form.appendChild(FoodMLabC1);
 form.appendChild(FoodMCInput1);
 form.appendChild(FoodVegLabC1);
 form.appendChild(FoodvegCInput1);
+form.appendChild(countrylab);
+form.appendChild(selects);
+// form.appendChild(options1);
+// form.appendChild(options2);
+// form.appendChild(options3);
 form.appendChild(submitButton);
 document.body.appendChild(table);
